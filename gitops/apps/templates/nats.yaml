@@ -9,7 +9,7 @@ spec:
   source:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     repoURL: {{ .Values.spec.source.repoURL }}
-    path: infrastructure/nats
+    path: gitops/nats
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: nats

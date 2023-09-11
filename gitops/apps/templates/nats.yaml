@@ -7,8 +7,11 @@ metadata:
 spec:
   project: default
   source:
-    targetRevision: {{ .Values.spec.source.targetRevision }}
-    repoURL: {{ .Values.spec.source.repoURL }}
-    path: gitops/nats
+    chart: nats
+    repoURL: https://nats-io.github.io/k8s/helm/charts/
+    targetRevision: 1.0.2
+    helm:
+      releaseName: nats
   destination:
-    server: {{ .Values.spec.destination.server }}
+    server: "https://kubernetes.default.svc"
+    namespace: nats

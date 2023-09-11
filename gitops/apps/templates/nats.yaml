@@ -12,4 +12,3 @@ spec:
     path: gitops/nats
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: nats

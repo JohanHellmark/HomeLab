@@ -13,7 +13,7 @@ spec:
   source:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     repoURL: {{ .Values.spec.source.repoURL }}
-    path: infrastructure/nats.yaml
+    path: infrastructure/nats
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: nats

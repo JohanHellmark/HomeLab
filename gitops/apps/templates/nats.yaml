@@ -1,0 +1,15 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nats
+  namespace: argocd
+spec:
+  project: default
+  source:
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    repoURL: {{ .Values.spec.source.repoURL }}
+    path: infrastructure/nats
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: nats

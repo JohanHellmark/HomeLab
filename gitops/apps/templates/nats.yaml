@@ -8,6 +8,8 @@ spec:
   project: default
   syncPolicy:
     automated: {}
+    syncOptions:
+      - CreateNamespace=true
   source:
     chart: nats
     repoURL: https://nats-io.github.io/k8s/helm/charts/

@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-nats
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: docker.io/johanhellmark/homelab:^0.1
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+spec:
+  destination:
+    namespace: test-nats
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    path: gitops/test_nats
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}

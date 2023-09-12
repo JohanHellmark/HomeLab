@@ -5,7 +5,7 @@ metadata:
   name: test-nats
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: docker.io/johanhellmark/homelab:^0.1
+    argocd-image-updater.argoproj.io/image-list: docker.io/johanhellmark/test-nats
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   syncPolicy:

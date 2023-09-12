@@ -9,3 +9,31 @@ stringData:
   name: istio.io
   url: https://github.com/JohanHellmark/Homelab
   type: helm
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: dockerhub
+  namespace: argocd
+spec:
+  encryptedData:
+    .dockerconfigjson: AgC4G56qzfUb7kBuHrEm1ySF7mpvHA7H3Ko3JnzYTfhoP8pynTXwbaukL13Cg/psOj4XUngKTIE6ceNJw0Wnf8tM904afKs6vxzYHkXb9K/MSXT8mT2sRAhfi9jMMFCiCLWNj90PYklNoh21UwENXTRmXhGezNG7ibThfUoH3Rqe0VdRXYw1adDQr5j0+gTOt7X3LYOKTfSyNnxf5QZJ0ss7Xi3cdq6bZD/zz4ih/dDCm2S39ZYaIJWOBhkvYvRBABcN7wdILB5oauaSg+En/khy+NjWd04IShEHwZN00EZxlCmaxHjHaOsOzVmyWzsWjV+VUjAwiN57/lyLVjVgh70LcOC4ippYJ8EHMxywNEsEopPeA4gGyWynjvxMY9DpLNHm8wUYPEAYE8TeHVZ3TOUd4yttpbj+MFzd5admo79Y8x3HggfYLxSQfqi6mwyxdIXk/i8PEt364UPUsmjcYzXIVNWT+K3G8kLSp/Ezw6z+2s3xIWg+83yrd7WQL+Dhe+PyNTXum5IbFOvW1olQZaaCDe6EvdoQ28NWDWCMDu0i046pbI8aL/FqHw2yfvXx8IPc9kAo/AG9HBFQGyPi212KJCfz3TU77NxORN0EWIUOUG5QnUa72oN+Oyo13DWOjLxZOAWekM6ZI3GOLytzAXbjdSDEMP8or2z7JGGBOfuGVdjuKp7UhgiScV/iiWTplwP23hBFUy3C5U5bHbyafbUntE1ZisoAKnsPBMr0CUj33w5x8sWhsmx2d5aQySKMiX7zM/EBbOSe1sNBV9zqJHv9d0rlSiTWln8Tm2fTb5rRhM4AJO3yh8YGtlUyoL2Si1o4Z3+EY5Q3Y4VzRFk67mKaIRtWnzG5IJ8anmRMVt7bXxGEv9yL11R6HprbYU880wvk5s+oUanfdgXoWDkfI+xo0ip1GLfLAkMFpBw3s/GshJCwdrCLWMMUcOxasQ==
+  template:
+    metadata:
+      name: dockerhub
+      namespace: argocd
+    type: kubernetes.io/dockerconfigjson
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-image-updater-config
+data:
+  registries.conf: |
+    registries:
+    - name: Docker Hub
+      prefix: docker.io
+      api_url: https://docker.io
+      credentials: pullsecret:argocd/dockerhub
+      defaultns: library
+      default: true

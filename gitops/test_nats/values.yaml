@@ -1,0 +1,6 @@
+replicaCount: 1
+
+image:
+  repository: docker.io/johanhellmark/test-nats
+  tag: 0.1
+  pullPolicy: IfNotPresent

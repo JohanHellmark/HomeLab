@@ -18,8 +18,8 @@ spec:
     targetRevision: 0.68.0
     helm:
       releaseName: otel-collector
-      value: |
-        mode: daemonset
+      valueObject:
+        mode: "daemonset"
         presets:
           # enables the k8sattributesprocessor and adds it to the traces, metrics, and logs pipelines
           kubernetesAttributes:

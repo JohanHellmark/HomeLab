@@ -6,6 +6,8 @@ on:
     paths: 
       - 'services/test_nats/**'
       - '.github/workflows/deployment.yaml'
+    tags:
+      - "v*"
 
 jobs:
   push_to_registry:

@@ -16,5 +16,5 @@ spec:
     path: gitops/open-telemetry-daemon
     repoURL: {{ .Values.spec.source.repoURL }}
   destination:
-    namespace: nats-service
+    namespace: open-telemetry
     server: {{ .Values.spec.destination.server }}

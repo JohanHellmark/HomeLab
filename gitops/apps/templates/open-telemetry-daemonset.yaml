@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: open-telemetry
+  name: open-telemetry-daemonset
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -17,10 +17,9 @@ spec:
     repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
     targetRevision: 0.68.0
     helm:
-      releaseName: open-telemetry
+      releaseName: open-telemetry-daemonset
       valueFiles:
         - gitops/apps/values/open-telemetry-daemonset
-
 
   destination:
     server: "https://kubernetes.default.svc"

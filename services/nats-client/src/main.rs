@@ -3,7 +3,7 @@ use std::{thread, time::Duration};
 
 fn main() -> io::Result<()> {
     println!("Hello, world!");
-    let nc = nats::connect("10.233.18.151")?;
+    let nc = nats::connect("nats.nats.svc.cluster.local")?;
     let mut counter: i32 = 0;
     loop {
         counter = counter + 1;

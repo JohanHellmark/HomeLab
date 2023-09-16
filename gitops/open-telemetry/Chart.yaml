@@ -26,6 +26,10 @@ dependencies:
   - name: opentelemetry-collector 
     version: 0.68.0
     repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+    valuesFiles:
+      - values-daemon.yaml
   - name: opentelemetry-collector 
     version: 0.68.0
     repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+    valuesFiles:
+      - values-deployment.yaml

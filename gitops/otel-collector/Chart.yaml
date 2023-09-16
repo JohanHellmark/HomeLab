@@ -23,6 +23,6 @@ version: 0.1.0
 appVersion: "1.0"
 
 dependencies:
-- name: otel-collector 
+- name: opentelemetry-collector 
   version: 0.68.0
   repository: https://open-telemetry.github.io/opentelemetry-helm-charts

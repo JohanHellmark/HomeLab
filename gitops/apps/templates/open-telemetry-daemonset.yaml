@@ -18,6 +18,10 @@ spec:
     targetRevision: 0.68.0
     helm:
       releaseName: open-telemetry
+      valueFiles:
+        - gitops/apps/values/open-telemetry-daemonset
+
+
   destination:
     server: "https://kubernetes.default.svc"
     namespace: open-telemetry

@@ -1,8 +1,0 @@
-[package]
-name = "test_nats"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-log = "0.4.20"
-nats = "0.24.0"

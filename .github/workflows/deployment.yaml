@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - 'main'
-    # paths: 
-    #   - 'services/test_nats/**'
+    paths: 
+      - 'services/test_nats/**'
     # tags: 
     #   - 'v*'
 

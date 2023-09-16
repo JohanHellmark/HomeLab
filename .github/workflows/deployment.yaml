@@ -3,6 +3,8 @@
 #   push:
 #     branches:
 #       - 'main'
+      # paths: 
+      #   - services/test_nats
 #     tags: 
 #       - 'v*'
 

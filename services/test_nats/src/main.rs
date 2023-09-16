@@ -1,3 +1,4 @@
+use log::info;
 use std::{thread, time::Duration};
 
 fn main() -> std::io::Result<()> {
@@ -9,5 +10,6 @@ fn main() -> std::io::Result<()> {
         Ok(())
     });
     thread::sleep(Duration::from_secs(5 * 60));
+    info!("We did reach this section");
     Ok(())
 }

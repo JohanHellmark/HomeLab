@@ -15,7 +15,7 @@ spec:
   source:
     chart: open-telemetry
     repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
-    targetRevision: 0.68.0
+    targetRevision: 0.67.0
     helm:
       releaseName: open-telemetry-daemonset
       valueFiles:

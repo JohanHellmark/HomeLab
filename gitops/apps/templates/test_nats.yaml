@@ -6,7 +6,7 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: image-alias=docker.io/johanhellmark/test-nats:v0.1.2^
-    argocd-image-updater.argoproj.io/pull-sercret: argocd/dockerhub
+    argocd-image-updater.argoproj.io/image-alias.pull-sercret: argocd/dockerhub
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   syncPolicy:

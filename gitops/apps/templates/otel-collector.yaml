@@ -15,12 +15,21 @@ spec:
   source:
     chart: opentelemetry-collector 
     repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
-    targetRevision: 0.67.0
+    targetRevision: 0.66.0
     helm:
       releaseName: otel-collector
-      valueFiles:
-        - values-otel-collector.yaml
-
+      valueObjects:
+        mode: "daemonset"
+        presets:
+          # enables the k8sattributesprocessor and adds it to the traces, metrics, and logs pipelines
+          kubernetesAttributes:
+            enabled: true
+          # enables the kubeletstatsreceiver and adds it to the metrics pipelines
+          kubeletMetrics:
+            enabled: true
+          # Enables the filelogreceiver and adds it to the logs pipelines
+          logsCollection:
+            enabled: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: open-telemetry

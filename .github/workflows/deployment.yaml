@@ -1,8 +1,6 @@
 name: Publish Docker image
 on: 
   push:
-    branches:
-      - 'main'
     paths: 
       - 'services/test_nats/**'
       - '.github/workflows/deployment.yaml'

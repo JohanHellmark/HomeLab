@@ -5,8 +5,8 @@ on:
       - 'main'
     paths: 
       - services/test_nats
-    tags: 
-      - 'v*'
+    # tags: 
+    #   - 'v*'
 
 jobs:
   push_to_registry:

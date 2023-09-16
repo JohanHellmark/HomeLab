@@ -24,7 +24,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: open-telemetry
+  name: open-telemetry-deployment
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io

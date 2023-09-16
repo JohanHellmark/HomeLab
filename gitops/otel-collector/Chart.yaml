@@ -1,5 +1,5 @@
 apiVersion: v2
-name: wordpress
+name: otel-collector
 description: A Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -23,6 +23,6 @@ version: 0.1.0
 appVersion: "1.0"
 
 dependencies:
-- name: opentelemetry-collector 
+- name: otel-collector 
   version: 0.68.0
   repository: https://open-telemetry.github.io/opentelemetry-helm-charts

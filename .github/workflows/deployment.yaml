@@ -4,7 +4,7 @@ on:
     branches:
       - 'main'
     paths: 
-      - ${{ github.workspace }}/services/test_nats/**
+      - 'services/test_nats/**'
     # tags: 
     #   - 'v*'
 

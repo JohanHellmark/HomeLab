@@ -1,0 +1,6 @@
+replicaCount: 1
+
+image:
+  repository: docker.io/johanhellmark/nats-client
+  tag: 0.1.4
+  pullPolicy: Always

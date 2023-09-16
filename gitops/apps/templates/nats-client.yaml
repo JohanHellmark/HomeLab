@@ -2,10 +2,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-nats
+  name: nats-client
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: docker.io/v1/johanhellmark/test-nats:v0.1.2^
+    argocd-image-updater.argoproj.io/image-list: docker.io/v1/johanhellmark/nats-client:v0.1.2^
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   syncPolicy:
@@ -14,10 +14,10 @@ metadata:
       - CreateNamespace=true
 spec:
   destination:
-    namespace: test-nats
+    namespace: nats-client
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: gitops/test_nats
+    path: gitops/nats-client
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}

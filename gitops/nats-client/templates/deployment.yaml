@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "test-nats.fullname" . }}
+  name: {{ template "nats-client.fullname" . }}
   labels:
-    app: {{ template "test-nats.name" . }}
-    chart: {{ template "test-nats.chart" . }}
+    app: {{ template "nats-client.name" . }}
+    chart: {{ template "nats-client.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -12,12 +12,12 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ template "test-nats.name" . }}
+      app: {{ template "nats-client.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "test-nats.name" . }}
+        app: {{ template "nats-client.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:

@@ -5,6 +5,7 @@ on:
       - 'main'
     paths: 
       - 'services/test_nats/**'
+      - '.github/workflows/deployment.yaml'
 
 jobs:
   push_to_registry:

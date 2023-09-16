@@ -5,8 +5,10 @@ metadata:
   name: test-nats
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: docker.io/johanhellmark/test-nats
-    argocd-image-updater.argoproj.io/johanhellmark/test-nats.update-strategy: latest
+    argocd-image-updater.argoproj.io/image-list: image-alias=docker.io/johanhellmark/test-nats
+    argocd-image-updater.argoproj.io/image-alias.update-strategy: latest
+    argocd-image-updater.argoproj.io/image-alias.force-update: 'true'
+
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   syncPolicy:

@@ -18,8 +18,18 @@ spec:
     targetRevision: 0.68.0
     helm:
       releaseName: otel-collector
-      valueFiles:
-        - otel-collector-values.yaml
+      valueObject:
+        mode: daemonset
+        presets:
+          # enables the k8sattributesprocessor and adds it to the traces, metrics, and logs pipelines
+          kubernetesAttributes:
+            enabled: true
+          # enables the kubeletstatsreceiver and adds it to the metrics pipelines
+          kubeletMetrics:
+            enabled: true
+          # Enables the filelogreceiver and adds it to the logs pipelines
+          logsCollection:
+            enabled: true
 
   destination:
     server: "https://kubernetes.default.svc"

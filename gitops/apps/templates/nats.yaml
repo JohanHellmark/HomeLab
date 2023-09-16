@@ -1,8 +1,8 @@
----
+  ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: open-telemetry
+  name: nats
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -13,11 +13,11 @@ spec:
     syncOptions:
       - CreateNamespace=true
   source:
-    chart: open-telemetry
-    repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
-    targetRevision: 0.68.0
+    chart: nats
+    repoURL: https://nats-io.github.io/k8s/helm/charts/
+    targetRevision: 1.0.2
     helm:
-      releaseName: open-telemetry
+      releaseName: nats
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: open-telemetry
+    namespace: nats

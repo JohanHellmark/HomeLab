@@ -1,4 +1,4 @@
-use log::info;
+use log::warn;
 use std::{thread, time::Duration};
 
 fn main() -> std::io::Result<()> {
@@ -9,7 +9,8 @@ fn main() -> std::io::Result<()> {
         println!("Received {}", &msg);
         Ok(())
     });
+    warn!("We did reach this... Time to sleep!");
     thread::sleep(Duration::from_secs(5 * 60));
-    info!("We did reach this section");
+    warn!("Done sleeping, I am out!");
     Ok(())
 }

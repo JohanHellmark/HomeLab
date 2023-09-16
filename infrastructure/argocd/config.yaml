@@ -40,7 +40,7 @@ data:
     registries:
     - name: Docker Hub
       prefix: index.docker.io
-      api_url: https://index.docker.io
+      api_url: https://docker.io
       credentials: pullsecret:argocd/dockerhub
       defaultns: library
       default: true

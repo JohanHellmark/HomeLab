@@ -17,7 +17,6 @@ spec:
     repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
     targetRevision: 0.68.0
     helm:
-      releaseName: otel-collector
       valueObject:
         mode: "daemonset"
         presets:
@@ -30,6 +29,7 @@ spec:
           # Enables the filelogreceiver and adds it to the logs pipelines
           logsCollection:
             enabled: true
+      releaseName: otel-collector
 
   destination:
     server: "https://kubernetes.default.svc"

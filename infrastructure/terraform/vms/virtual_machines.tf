@@ -52,7 +52,7 @@ resource "proxmox_virtual_environment_vm" "k8s_worker_01" {
   node_name   = "proxmox"
 
   cpu {
-    cores = 1
+    cores = 3
   }
 
   memory {

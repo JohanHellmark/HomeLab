@@ -19,7 +19,7 @@ spec:
     helm:
       releaseName: otel-collector
       valueFiles:
-        - gitops/apps/values/otel-collector.yaml
+        - otel-collector-values.yaml
 
   destination:
     server: "https://kubernetes.default.svc"

@@ -4,8 +4,8 @@ opentelemetry-collector:
   replicaCount: 1
   config:
     receivers:
-      protocols:
-        otlp:
+      otlp:
+        protocols:
           grpc: 
             endpoint: 0.0.0.0:4317
           http: 

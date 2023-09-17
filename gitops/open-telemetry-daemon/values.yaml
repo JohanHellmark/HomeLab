@@ -9,7 +9,6 @@ opentelemetry-collector:
               ca_file: certificate/ca.crt
               cert_file: certificate/tls.crt
               key_file: certificate/tls.key
-              insecure_skip_verify: true
           http: 
   extraVolumes:
     - name: tls-secret

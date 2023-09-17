@@ -6,7 +6,6 @@ opentelemetry-collector:
         protocols:
           grpc: 
             endpoint: 0.0.0.0:4317
-            tls: null
           http: 
             endpoint: 0.0.0.0:4318
   # presets:

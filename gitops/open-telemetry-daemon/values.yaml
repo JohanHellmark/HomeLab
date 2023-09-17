@@ -6,10 +6,10 @@ opentelemetry-collector:
         protocols:
           grpc: 
             endpoint: 0.0.0.0:4317
-            tls: null
-              # ca_file: certificate/ca.crt
-              # cert_file: certificate/tls.crt
-              # key_file: certificate/tls.key
+            tls: 
+              ca_file: certificate/ca.crt
+              cert_file: certificate/tls.crt
+              key_file: certificate/tls.key
           http: 
   extraVolumes:
     - name: tls-secret

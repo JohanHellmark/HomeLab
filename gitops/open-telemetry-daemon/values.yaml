@@ -8,6 +8,14 @@ opentelemetry-collector:
             endpoint: 0.0.0.0:4317
           http: 
             endpoint: 0.0.0.0:4318
+  ExtraVolumes:
+    - name: tls-secret
+      secret:
+        secretName: selfsigned-otel
+  ExtraVolumeMounts:
+    - name: tls-secret
+      readOnly: true
+      mountPath: "/certificate"
   # presets:
     # enables the k8sattributesprocessor and adds it to the traces, metrics, and logs pipelines
     # kubernetesAttributes:

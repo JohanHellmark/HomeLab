@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nats-service
+  name: dice-roller
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: docker.io/v1/johanhellmark/nats-service:v0.1.2^
@@ -14,10 +14,10 @@ metadata:
       - CreateNamespace=true
 spec:
   destination:
-    namespace: nats-service
+    namespace: prod
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: gitops/nats-service
+    path: gitops/dice-roller
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}

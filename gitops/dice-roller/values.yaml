@@ -1,5 +1,5 @@
 replicaCount: 1
 
 image:
-  repository: docker.io/johanhellmark/dice-roller
+  repository: docker.io/johanhellmark/dice-roller:main
   pullPolicy: Always

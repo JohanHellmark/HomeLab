@@ -14,7 +14,7 @@ metadata:
       - CreateNamespace=true
 spec:
   destination:
-    namespace: nats-client
+    namespace: prod
     server: {{ .Values.spec.destination.server }}
   project: default
   source:

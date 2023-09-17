@@ -16,5 +16,5 @@ spec:
     path: gitops/open-telemetry
     repoURL: {{ .Values.spec.source.repoURL }}
   destination:
-    namespace: open-telemetry
+    namespace: monitoring
     server: {{ .Values.spec.destination.server }}

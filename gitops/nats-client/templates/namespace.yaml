@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: nats-client
-  labels:
-    name: nats-client

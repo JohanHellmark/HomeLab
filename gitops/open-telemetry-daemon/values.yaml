@@ -11,6 +11,7 @@ opentelemetry-collector:
     exporters:
       otlp:
         endpoint: "open-telemetry-opentelemetry-collector.monitoring.svc.cluster.local:4317"
+        tls: null
     service:
       pipelines:
         traces:

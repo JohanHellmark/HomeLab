@@ -19,7 +19,7 @@ opentelemetry-collector:
           exporters: [ otlp ]
         logs:
           exporters: [ otlp ]
-    extraVolumes:
+  extraVolumes:
     - name: tls-secret
       secret:
         secretName: selfsigned-otel

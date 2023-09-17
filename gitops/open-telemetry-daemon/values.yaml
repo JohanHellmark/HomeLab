@@ -19,14 +19,14 @@ opentelemetry-collector:
           exporters: [ otlp ]
         logs:
           exporters: [ otlp ]
-  extraVolumes:
-    - name: tls-secret
-      secret:
-        secretName: selfsigned-otel
-  extraVolumeMounts:
-    - name: tls-secret
-      readOnly: true
-      mountPath: "/certificate"
+  # extraVolumes:
+  #   - name: tls-secret
+  #     secret:
+  #       secretName: selfsigned-otel
+  # extraVolumeMounts:
+  #   - name: tls-secret
+  #     readOnly: true
+  #     mountPath: "/certificate"
   # presets:
     # enables the k8sattributesprocessor and adds it to the traces, metrics, and logs pipelines
     # kubernetesAttributes:

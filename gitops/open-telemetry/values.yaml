@@ -7,8 +7,6 @@ opentelemetry-collector:
       otlp:
         grpc: 
           endpoint: 0.0.0.0:4317
-          tls:
-            insecure: true
         http: 
           endpoint: 0.0.0.0:4318
   # presets:

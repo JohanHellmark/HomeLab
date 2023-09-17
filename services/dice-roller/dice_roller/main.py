@@ -29,7 +29,7 @@ def do_roll():
             print("logging stuff")
             res = random.randint(1, 6)
             rollspan.set_attribute("roll.value", res)
-        time.sleep(1)
+        time.sleep(0.1)
 
 if __name__ == "__main__":
     do_roll()

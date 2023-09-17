@@ -1,12 +1,13 @@
 opentelemetry-collector:
   mode: daemonset
-  receivers:
-    otlp:
-      protocols:
-        grpc: 
-          endpoint: 0.0.0.0:4317
-        http: 
-          endpoint: 0.0.0.0:4318
+  config:
+    receivers:
+      otlp:
+        protocols:
+          grpc: 
+            endpoint: 0.0.0.0:4317
+          http: 
+            endpoint: 0.0.0.0:4318
   # presets:
     # enables the k8sattributesprocessor and adds it to the traces, metrics, and logs pipelines
     # kubernetesAttributes:
@@ -20,7 +21,6 @@ opentelemetry-collector:
   ## The chart only includes the loggingexporter by default
   ## If you want to send your data somewhere you need to
   ## configure an exporter, such as the otlpexporter
-  # config:
   # exporters:
   #   otlp:
   #     endpoint: "open-telemetry-opentelemetry-collector:4317"

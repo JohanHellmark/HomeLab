@@ -61,4 +61,4 @@ RUN poetry install
 
 # will become mountpoint of our code
 WORKDIR /app
-copy /dice_roller /dice_roller
+COPY dice_roller dice_roller

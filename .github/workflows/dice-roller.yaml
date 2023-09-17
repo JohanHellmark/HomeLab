@@ -9,7 +9,7 @@ on:
       - 'main'
     paths: 
       - 'services/${{ SERVICE_NAME }}/**'
-      - '.github/workflows/${{ env.SERVICE_NAME }}.yaml'
+      - '.github/**'
   
 jobs:
   push_to_registry:

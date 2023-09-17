@@ -7,10 +7,10 @@ opentelemetry-collector:
           grpc: 
             endpoint: 0.0.0.0:4317
             tls:
-              insecure: False
-              ca_file: certificate/ca.crt
-              cert_file: certificate/tls.crt
-              key_file: certificate/tls.key
+              insecure: true
+              # ca_file: certificate/ca.crt
+              # cert_file: certificate/tls.crt
+              # key_file: certificate/tls.key
           http: 
   extraVolumes:
     - name: tls-secret

@@ -1,6 +1,11 @@
 opentelemetry-collector:
   mode: daemonset
-  presets:
+  receivers:
+    otlp:
+      protocols:
+        grpc: 0.0.0.0:4317
+        http: 0.0.0.0:4317
+  # presets:
     # enables the k8sattributesprocessor and adds it to the traces, metrics, and logs pipelines
     # kubernetesAttributes:
     #   enabled: true
@@ -8,15 +13,15 @@ opentelemetry-collector:
     # kubeletMetrics:
     #   enabled: true
     # Enables the filelogreceiver and adds it to the logs pipelines
-    logsCollection:
-      enabled: true
+    # logsCollection:
+    #   enabled: true
   ## The chart only includes the loggingexporter by default
   ## If you want to send your data somewhere you need to
   ## configure an exporter, such as the otlpexporter
   # config:
   # exporters:
   #   otlp:
-  #     endpoint: "<SOME BACKEND>"
+  #     endpoint: "open-telemetry-opentelemetry-collector:4317"
   # service:
   #   pipelines:
   #     traces:

@@ -2,6 +2,11 @@ opentelemetry-collector:
   mode: deployment
   # We only want one of these collectors - any more and we'd produce duplicate data
   replicaCount: 1
+  receivers:
+    otlp:
+      protocols:
+        grpc: 0.0.0.0:4317
+        http: 0.0.0.0:4317
   # presets:
     # enables the k8sclusterreceiver and adds it to the metrics pipelines
     # clusterMetrics:

@@ -5,7 +5,6 @@ opentelemetry-collector:
       otlp:
         protocols:
           grpc: 
-            endpoint: 0.0.0.0:4317
             tls:
               insecure: false
               ca_file: certificate/ca.crt
@@ -13,7 +12,6 @@ opentelemetry-collector:
               key_file: certificate/tls.key
               insecure_skip_verify: true
           http: 
-            endpoint: 0.0.0.0:4318
   extraVolumes:
     - name: tls-secret
       secret:

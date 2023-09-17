@@ -8,7 +8,7 @@ on:
     branches:
       - 'main'
     paths: 
-      - 'services/**'
+      - 'services/$SERVICE_NAME/**'
       # - '.github/workflows/${{ env.SERVICE_NAME }}.yaml'
   
 jobs:

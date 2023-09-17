@@ -6,7 +6,6 @@ opentelemetry-collector:
         protocols:
           grpc: 
             tls:
-              insecure: false
               ca_file: certificate/ca.crt
               cert_file: certificate/tls.crt
               key_file: certificate/tls.key

@@ -18,7 +18,7 @@ resource = Resource(attributes={
 })
 
 provider = TracerProvider(resource=resource)
-processor = BatchSpanProcessor(OTLPSpanExporter("localhost:4317"))
+processor = BatchSpanProcessor(OTLPSpanExporter("localhost:4317", insecure=True))
 provider.add_span_processor(processor)
 trace.set_tracer_provider(provider)
 
@@ -26,9 +26,10 @@ def do_roll():
     tracer = trace.get_tracer("my.tracer")
     while True: 
         with tracer.start_as_current_span("do_roll") as rollspan:
+            print("logging stuff")
             res = random.randint(1, 6)
             rollspan.set_attribute("roll.value", res)
-        time.sleep(2)
+        time.sleep(1)
 
 if __name__ == "__main__":
     do_roll()

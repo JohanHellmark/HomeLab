@@ -18,7 +18,7 @@ resource = Resource(attributes={
 })
 
 provider = TracerProvider(resource=resource)
-processor = BatchSpanProcessor(OTLPSpanExporter("192.168.68.142:4317"))
+processor = BatchSpanProcessor(OTLPSpanExporter("localhost:4317"))
 provider.add_span_processor(processor)
 trace.set_tracer_provider(provider)
 

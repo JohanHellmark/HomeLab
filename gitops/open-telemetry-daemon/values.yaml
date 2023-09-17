@@ -10,7 +10,7 @@ opentelemetry-collector:
           http: 
     exporters:
       otlp:
-        endpoint: "open-telemetry-opentelemetry-collector.monitoring.svc.cluster.local"
+        endpoint: "open-telemetry-opentelemetry-collector.monitoring.svc.cluster.local:4317"
         tls: 
           insecure: true
     service:

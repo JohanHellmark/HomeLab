@@ -1,13 +1,15 @@
 name: Publish Docker image
+
 env:
   SERVICE_NAME: dice-roller
+
 on: 
   push:
     branches:
       - 'main'
-    # paths: 
-    #   - 'services/$SERVICE-NAME/**'
-    #   - '.github/workflows/$SERVICE-NAME.yaml'
+    paths: 
+      - 'services/${{ env.SERVICE_NAME }}/**'
+      - '.github/workflows/${{ env.SERVICE_NAME }}.yaml'
   
 jobs:
   push_to_registry:
@@ -32,8 +34,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: ${{ github.workspace }}/services/$SERVICE_NAME/
-          file: ${{ github.workspace }}/services/$SERVICE_NAME/Dockerfile
+          context: ${{ github.workspace }}/services/${{ env.SERVICE_NAME }}/
+          file: ${{ github.workspace }}/services/${{ env.SERVICE_NAME }}/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

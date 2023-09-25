@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jaeger
+  name: cassandra
   namespace: prod
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -13,11 +13,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
   source:
-    chart: jaeger
-    repoURL: https://jaegertracing.github.io/helm-charts
-    targetRevision: 0.71.14
-    helm:
-      releaseName: jaeger
+    path: gitops/open-telemetry-daemon
+    repoURL: {{ .Values.spec.source.repoURL }}
   destination:
-    server: "https://kubernetes.default.svc"
-    namespace: monitoring
+    namespace: prod
+    server: {{ .Values.spec.destination.server }}

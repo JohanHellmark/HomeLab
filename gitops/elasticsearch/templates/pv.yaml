@@ -13,7 +13,7 @@ spec:
   local:
     path: /mnt/disk1/
   claimRef:
-    name: 
+    name: es-pvc
     namespace: prod
   nodeAffinity:
     required:

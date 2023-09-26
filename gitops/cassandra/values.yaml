@@ -1,1 +1,7 @@
 cassandra:
+  dbUser:
+    forcePassword: true
+    existingSecret: 
+      name: cassandra
+        keyMapping:
+          cassandra-password: password

@@ -1,5 +1,6 @@
 elasticsearch:
-  kibanaEnabled: true
+  global:
+    kibanaEnabled: true
   master:
     masterOnly: false
     replicaCount: 1

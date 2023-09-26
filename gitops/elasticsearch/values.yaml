@@ -15,3 +15,6 @@ elasticsearch:
     replicaCount: 0
   ingest:
     enabled: false
+  kibana:
+    persistence:
+      existingClaim: "kibana-pvc"

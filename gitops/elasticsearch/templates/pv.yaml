@@ -53,7 +53,7 @@ spec:
   local:
     path: /mnt/disk1/
   claimRef:
-    name: kibana-pv
+    name: kibana-pvc
     namespace: prod
   nodeAffinity:
     required:

@@ -1,9 +1,6 @@
 cassandra:
   dbUser:
     forcePassword: true
-    existingSecret: 
-      name: cassandra
-      keyMapping:
-        cassandra-password: password
+    existingSecret: "cassandra"
   persistence:
     existingClaim: cassandra-pvc

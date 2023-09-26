@@ -5,3 +5,5 @@ cassandra:
       name: cassandra
       keyMapping:
         cassandra-password: password
+  persistence:
+    existingClaim: cassandra-pvc

@@ -34,3 +34,6 @@ spec:
   volumeName: cassandra-pv
   accessModes:
     - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi

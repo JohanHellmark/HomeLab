@@ -1,0 +1,16 @@
+cassandra:
+  kibanaEnabled: true
+  master:
+    masterOnly: false
+    replicaCount: 1
+  persistence:
+    existingClaim: es-pvc
+    size: 50Gi
+  data: 
+    enabled: false
+    replicaCount: 0
+  coordinating:
+    enabled: false
+    replicaCount: 0
+  ingest:
+    enabled: false

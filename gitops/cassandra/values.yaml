@@ -1,6 +1,0 @@
-cassandra:
-  dbUser:
-    forcePassword: true
-    existingSecret: "cassandra"
-  persistence:
-    existingClaim: cassandra-pvc

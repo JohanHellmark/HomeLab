@@ -3,5 +3,5 @@ cassandra:
     forcePassword: true
     existingSecret: 
       name: cassandra
-        keyMapping:
-          cassandra-password: password
+      keyMapping:
+        cassandra-password: password

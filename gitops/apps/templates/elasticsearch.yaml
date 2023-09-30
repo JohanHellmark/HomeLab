@@ -1,3 +1,6 @@
+# This required too much resources, everything 
+# simply fell apart...
+# 
 # ---
 # apiVersion: argoproj.io/v1alpha1
 # kind: Application

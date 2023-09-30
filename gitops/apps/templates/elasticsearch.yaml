@@ -1,20 +1,20 @@
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: elasticsearch
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: default
-  syncPolicy:
-    automated: {}
-    syncOptions:
-      - CreateNamespace=true
-  source:
-    path: gitops/elasticsearch
-    repoURL: {{ .Values.spec.source.repoURL }}
-  destination:
-    namespace: prod
-    server: {{ .Values.spec.destination.server }}
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: elasticsearch
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: default
+#   syncPolicy:
+#     automated: {}
+#     syncOptions:
+#       - CreateNamespace=true
+#   source:
+#     path: gitops/elasticsearch
+#     repoURL: {{ .Values.spec.source.repoURL }}
+#   destination:
+#     namespace: prod
+#     server: {{ .Values.spec.destination.server }}

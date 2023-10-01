@@ -1,11 +1,11 @@
 name: Publish Docker image
 on:
   push:
-    paths:
-      - "services/web-server/**"
-      - ".github/workflows/web-server.yaml"
-    tags:
-      - "v*"
+    # paths:
+    #   - "services/web-server/**"
+    #   - ".github/workflows/web-server.yaml"
+    # tags:
+    #   - "v*"
 
 jobs:
   push_to_registry:

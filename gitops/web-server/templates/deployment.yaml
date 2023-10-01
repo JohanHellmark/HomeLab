@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: { { template "web-server.fullname" . } }
+  labels:
+    app: { { template "web-server.name" . } }
+    chart: { { template "web-server.chart" . } }
+    release: { { .Release.Name } }
+    heritage: { { .Release.Service } }
+spec:
+  replicas: { { .Values.replicaCount } }
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: { { template "web-server.name" . } }
+      release: { { .Release.Name } }
+  template:
+    metadata:
+      labels:
+        app: { { template "web-server.name" . } }
+        release: { { .Release.Name } }
+    spec:
+      containers:
+        - name: { { .Chart.Name } }
+          image: "{{ .Values.image.repository }}"
+          imagePullPolicy: { { .Values.image.pullPolicy } }
+          command:
+            - "app/web-server"

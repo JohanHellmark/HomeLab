@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nats-client
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: docker.io/v1/johanhellmark/nats-client:main
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+spec:
+  destination:
+    namespace: prod
+    server: { { .Values.spec.destination.server } }
+  project: default
+  source:
+    path: gitops/web-server
+    repoURL: { { .Values.spec.source.repoURL } }
+    targetRevision: { { .Values.spec.source.targetRevision } }

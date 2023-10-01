@@ -1,5 +1,5 @@
 replicaCount: 1
 
 image:
-  repository: docker.io/johanhellmark/web-server
+  repository: docker.io/johanhellmark/web-server:main
   pullPolicy: Always

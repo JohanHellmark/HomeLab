@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dice-roller
+spec:
+  selector:
+    matchLabels:
+      app: dice-roller
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: dice-roller
+          image: ${image}
+          imagePullPolicy: IfNotPresent
+          command:
+            - python3
+            - dice_roller/main.py

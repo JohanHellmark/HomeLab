@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ template "web-server.fullname" . }}
+  namespace: "prod"
   labels:
     app: {{ template "web-server.name" . }}
     chart: {{ template "web-server.chart" . }}

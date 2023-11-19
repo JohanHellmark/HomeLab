@@ -1,0 +1,24 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: dice-roller
+spec:
+  image: johanhellmark/dice-roller
+  interval: 1m0s
+  secretRef:
+    name: docker-hub
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: dice-roller
+spec:
+  filterTags:
+    extract: $ts
+    pattern: ^$.*-(?P<ts>\d{4}-\d{2}-\d{2}\.\d{6})
+  imageRepositoryRef:
+    name: dice-roller
+  policy:
+    alphabetical:
+      order: asc

@@ -17,7 +17,6 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-    namespace: flux-sustem
   url: https://github.com/JohanHellmark/HomeLab.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1

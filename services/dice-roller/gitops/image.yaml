@@ -16,7 +16,7 @@ metadata:
 spec:
   filterTags:
     extract: $ts
-    pattern: ^$.*-(?P<ts>\d{4}-\d{2}-\d{2}\.\d{6})
+    pattern: ^.*-(?P<ts>.*)
   imageRepositoryRef:
     name: dice-roller
   policy:

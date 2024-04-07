@@ -10,7 +10,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: prod
-  namespace: flux
+  namespace: flux-system
 spec:
   interval: 30s
   ref:

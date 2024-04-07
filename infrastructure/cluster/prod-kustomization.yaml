@@ -34,3 +34,5 @@ spec:
   path: "./services/dice-roller/gitops"
   prune: true
   timeout: 1m
+  subsitute:
+    image: johanhellmark/dice-roller:20240407180410 # {"$imagepolicy": "flux-system:podinfo"}

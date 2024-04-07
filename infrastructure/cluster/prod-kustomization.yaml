@@ -30,6 +30,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: prod
+    namespace: flux-system
   path: "./services/dice-roller/gitops"
   prune: true
   timeout: 1m

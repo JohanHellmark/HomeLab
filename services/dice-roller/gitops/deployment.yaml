@@ -18,6 +18,8 @@ spec:
         - name: dice-roller
           image: ${image}
           imagePullPolicy: IfNotPresent
+          imagePullSecrets:
+            - name: regcred
           command:
             - python3
             - dice_roller/main.py

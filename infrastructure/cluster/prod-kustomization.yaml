@@ -5,31 +5,31 @@ metadata:
   name: prod
   labels:
     name: prod
-# ---
-# apiVersion: source.toolkit.fluxcd.io/v1
-# kind: GitRepository
-# metadata:
-#   name: prod
-#   namespace: prod
-# spec:
-#   interval: 30s
-#   ref:
-#     branch: main
-#   secretRef:
-#     name: flux-system
-#   url: https://github.com/JohanHellmark/HomeLab.git
-# ---
-# apiVersion: kustomize.toolkit.fluxcd.io/v1
-# kind: Kustomization
-# metadata:
-#   name: base-kustomization
-#   namespace: prod
-# spec:
-#   interval: 30s
-#   targetNamespace: prod
-#   sourceRef:
-#     kind: GitRepository
-#     name: prod
-#   path: "./services"
-#   prune: true
-#   timeout: 1m
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: prod
+  namespace: prod
+spec:
+  interval: 30s
+  ref:
+    branch: main
+  secretRef:
+    name: flux-system
+  url: https://github.com/JohanHellmark/HomeLab.git
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: test-app
+  namespace: prod
+spec:
+  interval: 30s
+  targetNamespace: prod
+  sourceRef:
+    kind: GitRepository
+    name: prod
+  path: "./gitops/apps/test"
+  prune: true
+  timeout: 1m

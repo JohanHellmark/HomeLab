@@ -1,0 +1,32 @@
+#cloud-config
+# package_upgrade: true
+# packages:
+#   - qemu-guest-agent
+#   - sudo
+# # ssh:
+# #   install-server: true
+# #   allow-pw: true
+# #   disable_root: true
+# #   ssh_quiet_keygen: true
+# #   allow_public_ssh_keys: true
+# # storage:
+# #   layout:
+# #     name: direct
+# #   swap:
+# #     size: 0
+# users:
+#   - name: hellmark
+#     gecos: Johan Hellmark
+#     groups: [users, admin, sudo]
+#     lock-passwd: false
+#     sudo: ALL=(ALL) NOPASSWD:ALL
+#     shell: /bin/bash
+#     ssh_authorized_keys:
+#       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM58MA9gEWnMdVA7TqQr0SpZo3m9Vs8VYYQvTr/uBAtc
+
+# power_state:
+#   delay: now
+#   mode: reboot
+#   message: Rebooting after cloud-init completion
+#   condition: true
+

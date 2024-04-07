@@ -10,7 +10,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: prod
-  namespace: prod
+  namespace: flux
 spec:
   interval: 30s
   ref:
@@ -30,6 +30,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: prod
-  path: "./services/dice-roller/gitops/"
+  path: "./services/dice-roller/gitops"
   prune: true
   timeout: 1m

@@ -34,7 +34,7 @@ source "proxmox-iso" "ubuntu-server-focal-docker" {
 
     # VM OS Settings
     # (Option 1) Local ISO File
-    iso_file = "local:iso/ubuntu-20.04.2-live-server-amd64.iso"
+    iso_file = "local:iso/ubuntu-20.04.6-live-server-amd64.iso"
     # - or -
     # (Option 2) Download ISO
     # iso_url = "https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img"
@@ -59,10 +59,10 @@ source "proxmox-iso" "ubuntu-server-focal-docker" {
     }
 
     # VM CPU Settings
-    cores = "2"
+    cores = "4"
     
     # VM Memory Settings
-    memory = "2048" 
+    memory = "8192" 
 
     # VM Network Settings
     network_adapters {
@@ -108,7 +108,7 @@ source "proxmox-iso" "ubuntu-server-focal-docker" {
     ssh_private_key_file = "~/.ssh/id_rsa"
 
     # Raise the timeout, when installation takes longer
-    ssh_timeout = "50m"
+    ssh_timeout = "100m"
 }
 
 # Build Definition to create the VM Template
@@ -164,8 +164,8 @@ build {
             "sudo apt-get update",
             "sudo apt-get install -y apt-transport-https ca-certificates curl gpg",
             "sudo mkdir /etc/apt/keyrings/",
-            "curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg",
-            "echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list",
+            "curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg",
+            "echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list",
             "sudo apt-get update",
             "sudo apt-get install -y kubelet kubeadm kubectl",
             "sudo apt-mark hold kubelet kubeadm kubectl",

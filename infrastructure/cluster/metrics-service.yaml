@@ -1,0 +1,41 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: kubernetes-sig
+  namespace: infra
+spec:
+  interval: 1h0m0s
+  url: https://kubernetes-sigs.github.io/metrics-server/
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metrics-server
+  namespace: infra
+spec:
+  chart:
+    spec:
+      chart: metrics-server
+      sourceRef:
+        kind: HelmRepository
+        name: kubernetes-sig
+      version: 3.12.1
+  interval: 1h0m0s
+  targetNamespace: infra
+  values:
+    args:
+      - --cert-dir=/tmp
+      - --kubelet-insecure-tls
+      - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+      - --metric-resolution=40s
+      - --secure-port=10250
+    metrics:
+      enabled: true
+    readinessProbe:
+      initialDelaySeconds: 20
+      periodSeconds: 10
+      failureThreshold: 3
+    livenessProbe:
+      initialDelaySeconds: 300
+      periodSeconds: 30
+      failureThreshold: 3

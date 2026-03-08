@@ -161,6 +161,7 @@ build {
     # Provisioning the VM Template with kubeadm
     provisioner "shell" {
         inline = [
+            "sudo swapoff -a",
             "sudo apt-get update",
             "sudo apt-get install -y apt-transport-https ca-certificates curl gpg",
             "sudo mkdir /etc/apt/keyrings/",

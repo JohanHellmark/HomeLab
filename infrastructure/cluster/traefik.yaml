@@ -1,0 +1,71 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: traefik-lab-charts
+  namespace: prod
+spec:
+  interval: 1h0m0s
+  url: https://traefik.github.io/charts
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: prod
+spec:
+  chart:
+    spec:
+      chart: traefik
+      sourceRef:
+        kind: HelmRepository
+        name: traefik-lab-charts
+      version: 28.3.0
+  interval: 1h0m0s
+  targetNamespace: prod
+  # Create an IngressRoute for the dashboard
+  values:
+    ingressRoute:
+      dashboard:
+        enabled: true
+        # Custom match rule with host domain
+        matchRule: Host(`traefik-dashboard.example.com`)
+        entryPoints: ["websecure"]
+        # Add custom middlewares : authentication and redirection
+        middlewares:
+          - name: traefik-dashboard-auth
+
+    # Create the custom middlewares used by the IngressRoute dashboard (can also be created in another way).
+    # /!\ Yes, you need to replace "changeme" password with a better one. /!\
+    extraObjects:
+      - apiVersion: v1
+        kind: Secret
+        metadata:
+          name: traefik-dashboard-auth-secret
+        type: kubernetes.io/basic-auth
+        stringData:
+          username: admin
+          password: changeme
+      - apiVersion: traefik.io/v1alpha1
+        kind: Middleware
+        metadata:
+          name: traefik-dashboard-auth
+        spec:
+          basicAuth:
+            secret: traefik-dashboard-auth-secret
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: nginx
+#   namespace: prod
+# spec:
+#   rules:
+#     - http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: nginx
+#                 port:
+#                   number: 80
